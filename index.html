@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fogoe | Minimal Node.js Project Starter</title>
-    <meta name="description" content="A minimal CLI for initializing Node.js backend projects with zero friction. Reach a running server state in seconds.">
-    <meta name="keywords" content="Node.js, CLI, backend, Express, Fastify, scaffolding, generator, starter">
+    <title>Fogoe | Minimal Node.js & TypeScript Backend Starter</title>
+    <meta name="description" content="A minimal CLI for initializing Node.js backend projects with TypeScript support and zero friction. Reach a running server state in seconds.">
+    <meta name="keywords" content="Node.js, TypeScript, CLI, backend, Express, Fastify, scaffolding, generator, starter">
     <meta name="author" content="Sooriya">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Fogoe | Minimal Node.js Project Starter">
-    <meta property="og:description" content="Initialize Node.js backends with zero friction. A running server in seconds.">
+    <meta property="og:title" content="Fogoe | Minimal Node.js & TypeScript Backend Starter">
+    <meta property="og:description" content="Initialize Node.js and TypeScript backends with zero friction. A running server in seconds.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://github.com/Sooriya04/fogoe">
     
@@ -982,12 +982,12 @@
             </div>
             
             <h1 class="fade-up delay-1">
-                Initialize Node.js backends<br>
+                Initialize Node.js & TypeScript backends<br>
                 <span class="gradient-text">with zero friction.</span>
             </h1>
             
             <p class="hero-desc fade-up delay-2">
-                A minimal CLI that generates only the essentials — a server, a route, 
+                A minimal CLI with full TypeScript support that generates only the essentials — a server, a route, 
                 and a lifecycle. Reach a running state in seconds, not minutes.
 
             </p>
@@ -1023,15 +1023,15 @@
             <div class="stats-bar fade-up">
                 <div class="stat-item">
                     <div class="stat-value">2</div>
+                    <div class="stat-label">Languages</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">2</div>
                     <div class="stat-label">Frameworks</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value">4</div>
                     <div class="stat-label">Databases</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">2</div>
-                    <div class="stat-label">Architectures</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value">&lt;30s</div>
@@ -1057,8 +1057,8 @@
                 <div class="step-card fade-up delay-1">
                     <div class="step-number">2</div>
                     <h3>Choose Your Stack</h3>
-                    <p>Select your framework, module system, database, and architecture pattern.</p>
-                    <div class="step-code">Express / Fastify</div>
+                    <p>Select language (JS/TS), framework, module system, database, and architecture pattern.</p>
+                    <div class="step-code">TypeScript + Express</div>
                 </div>
                 <div class="step-card fade-up delay-2">
                     <div class="step-number">3</div>
@@ -1194,6 +1194,85 @@
             </div>
         </section>
 
+        <!-- TypeScript Support Section -->
+        <section class="section container">
+            <div class="section-header fade-up">
+                <h2>Full TypeScript Support</h2>
+                <p class="section-desc">Automatic configuration with zero setup. TypeScript just works out of the box.</p>
+            </div>
+            
+            <div class="grid-split">
+                <div class="split-card fade-up" style="border-top: 3px solid #3178c6;">
+                    <h3><i class="bi bi-code-square" style="color: #3178c6; margin-right: 12px;"></i>Smart Configuration</h3>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Automatic @types/* package installation</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Optimized tsconfig.json for your module type</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Path aliases for MVC projects (@routes/*, @controllers/*)</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> tsx and ts-node included for development</li>
+                    </ul>
+                </div>
+
+                <div class="split-card fade-up delay-1" style="border-top: 3px solid #3178c6;">
+                    <h3><i class="bi bi-puzzle-fill" style="color: #3178c6; margin-right: 12px;"></i>Auto-Installed Types</h3>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Core: typescript, ts-node, tsx, @types/node</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Express: @types/express, @types/cors</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Fastify: @fastify/type-provider-typebox</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Database & Library types as needed</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Git Integration Section -->
+        <section class="section container">
+            <div class="section-header fade-up">
+                <h2>Git Integration</h2>
+                <p class="section-desc">Optionally initialize a Git repository and push to GitHub during setup.</p>
+            </div>
+            
+            <div class="output-showcase">
+                <div class="output-info fade-up">
+                    <div class="output-card">
+                        <h4><i class="bi bi-git"></i> Automatic .gitignore</h4>
+                        <p>Pre-configured with node_modules/ and .env to keep your repository clean.</p>
+                    </div>
+                    <div class="output-card">
+                        <h4><i class="bi bi-check-circle"></i> Initial Commit</h4>
+                        <p>All project files committed automatically with a clean initial commit.</p>
+                    </div>
+                    <div class="output-card">
+                        <h4><i class="bi bi-cloud-upload"></i> GitHub Push</h4>
+                        <p>Connects to your repository and pushes the first commit automatically.</p>
+                    </div>
+                    <div class="output-card">
+                        <h4><i class="bi bi-toggle-on"></i> Completely Optional</h4>
+                        <p>Skip if you prefer manual Git setup. Full control over your workflow.</p>
+                    </div>
+                </div>
+                
+                <div class="file-tree fade-up delay-1">
+                    <div class="file-tree-header">
+                        <i class="bi bi-terminal"></i>
+                        <span>Git Setup Flow</span>
+                    </div>
+                    <div class="file-tree-body">
+                        <ul>
+                            <li><i class="bi bi-1-circle-fill" style="color: var(--brand-accent);"></i> "Initialize Git repository?" → yes</li>
+                            <li class="nested"><i class="bi bi-arrow-return-right" style="color: var(--text-muted);"></i> Enter branch name (default: main)</li>
+                            <li><i class="bi bi-2-circle-fill" style="color: var(--brand-accent);"></i> Provide GitHub repository URL</li>
+                            <li class="nested"><i class="bi bi-arrow-return-right" style="color: var(--text-muted);"></i> https://github.com/user/repo.git</li>
+                            <li><i class="bi bi-3-circle-fill" style="color: var(--brand-accent);"></i> Fogoe handles the rest:</li>
+                            <li class="nested"><i class="bi bi-check2" style="color: #22c55e;"></i> git init</li>
+                            <li class="nested"><i class="bi bi-check2" style="color: #22c55e;"></i> git add .</li>
+                            <li class="nested"><i class="bi bi-check2" style="color: #22c55e;"></i> git commit -m "Initial commit"</li>
+                            <li class="nested"><i class="bi bi-check2" style="color: #22c55e;"></i> git push</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Tech Stack -->
         <section class="section container" id="stack">
             <div class="section-header fade-up">
@@ -1203,6 +1282,13 @@
             
             <div class="tech-table-wrap fade-up">
                 <table class="tech-table">
+                    <tr>
+                        <th><i class="bi bi-code-slash" style="margin-right: 10px; color: var(--brand-primary);"></i>Languages</th>
+                        <td>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">TypeScript</span>
+                        </td>
+                    </tr>
                     <tr>
                         <th><i class="bi bi-box" style="margin-right: 10px; color: var(--brand-primary);"></i>Frameworks</th>
                         <td>
@@ -1239,6 +1325,14 @@
                         <th><i class="bi bi-key" style="margin-right: 10px; color: var(--brand-primary);"></i>Auth (Optional)</th>
                         <td>
                             <span class="tech-tag">jsonwebtoken</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><i class="bi bi-git" style="margin-right: 10px; color: var(--brand-primary);"></i>Git Integration</th>
+                        <td>
+                            <span class="tech-tag">GitHub Init</span>
+                            <span class="tech-tag">Auto-commit</span>
+                            <span class="tech-tag">Auto-push</span>
                         </td>
                     </tr>
                 </table>
@@ -1315,7 +1409,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <span class="brand-logo">Fogoe</span>
-                    <span>Minimal Node.js Project Starter</span>
+                    <span>Minimal Node.js & TypeScript Project Starter</span>
                 </div>
                 <div class="footer-links">
                     <a href="https://github.com/Sooriya04/fogoe" target="_blank">
