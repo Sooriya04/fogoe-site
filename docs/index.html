@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fogoe Documentation</title>
+    <meta name="description" content="Official documentation for Fogoe - A minimal Node.js backend starter.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <header class="mobile-header">
+        <button id="sidebar-toggle" aria-label="Toggle navigation">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <span class="logo">Fogoe</span>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="logo">Fogoe</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#quick-start" class="active">Quick Start</a></li>
+                    <li><a href="#core-concepts">Core Concepts</a></li>
+                    <li><a href="#architectures">Architectures</a></li>
+                    <li><a href="#cli-options">CLI Options</a></li>
+                    <li><a href="#typescript-git">TypeScript & Git</a></li>
+                    <li><a href="#docker">Docker</a></li>
+                    <li><span class="nav-divider"></span></li>
+                    <li><a href="https://github.com/Sooriya04/fogoe" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://sooriya04.github.io/fogoe-site/" target="_blank" rel="noopener">Official Site</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <section id="quick-start">
+                <h1>Documentation</h1>
+                <p class="lead">Fogoe is the fastest way to bootstrap a Node.js backend with full TypeScript support and no boilerplate bloat.</p>
+                
+                <h2>Quick Start</h2>
+                <p>Run the CLI directly using npx:</p>
+                <div class="code-block">
+                    <pre><code>npx fogoe</code></pre>
+                    <button class="copy-btn" data-clipboard="npx fogoe">Copy</button>
+                </div>
+                <p>Follow the interactive prompts to select your framework, language, and database. Your project will be ready in seconds.</p>
+            </section>
+
+            <section id="core-concepts">
+                <h2>Core Concepts</h2>
+                <p>Fogoe follows a <strong>"Foundation First"</strong> philosophy. It provides the minimal structure needed to get a server running, but leaves the business logic and architecture decisions to you.</p>
+                <ul>
+                    <li><strong>Minimalist:</strong> No hidden magic or complex abstractions.</li>
+                    <li><strong>Flexible:</strong> Works with Express or Fastify out of the box.</li>
+                    <li><strong>Modern:</strong> First-class support for TypeScript and ES Modules.</li>
+                </ul>
+            </section>
+
+            <section id="architectures">
+                <h2>Architectures</h2>
+                <p>Select the structure that fits your project scope:</p>
+                
+                <div class="grid">
+                    <div class="card">
+                        <h3>Minimal</h3>
+                        <p>A single entry point (<code>index.ts</code> or <code>index.js</code>). Perfect for small microservices, prototypes, or developers who want total control over their file structure.</p>
+                    </div>
+                    <div class="card">
+                        <h3>MVC</h3>
+                        <p>A conventional folder structure: <code>controllers/</code>, <code>routes/</code>, <code>services/</code>, and <code>config/</code>. Ideal for projects that will grow or team environments.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cli-options">
+                <h2>CLI Options Reference</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Supported Choices</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Framework</td>
+                                <td><code>Express</code>, <code>Fastify</code></td>
+                            </tr>
+                            <tr>
+                                <td>Language</td>
+                                <td><code>JavaScript</code>, <code>TypeScript</code></td>
+                            </tr>
+                            <tr>
+                                <td>Module System</td>
+                                <td><code>CommonJS</code>, <code>ES Modules</code></td>
+                            </tr>
+                            <tr>
+                                <td>Database</td>
+                                <td><code>Mongoose</code>, <code>Prisma</code>, <code>MySQL2</code>, <code>PG</code></td>
+                            </tr>
+                            <tr>
+                                <td>Auth/Hash</td>
+                                <td><code>Bcrypt</code>, <code>Argon2</code>, <code>JSONWebToken</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="typescript-git">
+                <h2>TypeScript & Git</h2>
+                
+                <h3>TypeScript Support</h3>
+                <p>Fogoe handles all the heavy lifting for TypeScript:</p>
+                <ul>
+                    <li>Installs <code>@types/node</code>, <code>@types/express</code>, etc automatically.</li>
+                    <li>Generates an optimized <code>tsconfig.json</code>.</li>
+                    <li>Configures <code>tsx</code> or <code>ts-node</code> for a seamless dev experience.</li>
+                    <li>Sets up path aliases (e.g., <code>@routes/*</code>) for MVC projects.</li>
+                </ul>
+
+                <h3>Git Integration</h3>
+                <p>Optionally initialize your repository during the setup flow:</p>
+                <ul>
+                    <li>Creates an initial commit with all generated files.</li>
+                    <li>Configures a <code>.gitignore</code> for Node.js defaults.</li>
+                    <li>Can automatically push to your GitHub repository if a URL is provided.</li>
+                </ul>
+            </section>
+
+            <section id="docker">
+                <h2>Docker Support</h2>
+                <p>Fogoe provides built-in Docker support to containerize your backend projects consistently. It generates optimized Dockerfiles and Docker Compose configurations based on your project selections.</p>
+                
+                <div class="info-box">
+                    <p>Read our full guide on <strong><a href="docker-fogoe.html">Docker Integration & Base OS Choices</a></strong> to learn about production strategies and performance optimizations.</p>
+                </div>
+            </section>
+
+            <section id="meta">
+                <h2>Support & Feedback</h2>
+                <p>Fogoe is open-source and maintained by Sooriya B.</p>
+                <ul>
+                    <li><strong>Bugs:</strong> Open an issue on <a href="https://github.com/Sooriya04/fogoe">GitHub</a>.</li>
+                    <li><strong>Contact:</strong> sooriya.work@gmail.com</li>
+                    <li><strong>License:</strong> MIT</li>
+                </ul>
+            </section>
+
+            <footer class="main-footer">
+                <p>Boostrapping Node.js with speed. &copy; 2026</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

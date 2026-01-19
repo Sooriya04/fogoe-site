@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Support - Fogoe Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <header class="mobile-header">
+        <button id="sidebar-toggle" aria-label="Toggle navigation">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <span class="logo">Fogoe</span>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="logo">Fogoe</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html">← Back to Home</a></li>
+                    <li><span class="nav-divider"></span></li>
+                    <li><a href="#overview" class="active">Docker Overview</a></li>
+                    <li><a href="#files">Generated Files</a></li>
+                    <li><a href="#base-os">Base OS Choices</a></li>
+                    <li><a href="#js-vs-ts">JS vs TS</a></li>
+                    <li><a href="#dev-vs-prod">Dev vs Prod</a></li>
+                    <li><span class="nav-divider"></span></li>
+                    <li><a href="https://github.com/Sooriya04/fogoe" target="_blank" rel="noopener">GitHub</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <section id="overview">
+                <h1>Docker Support</h1>
+                <p class="lead">Containerize your backend projects with professional-grade scaffolding.</p>
+
+                <p>Fogoe provides built-in Docker support to help developers containerize their backend projects quickly, consistently, and in a production-oriented way. When enabled, Fogoe generates ready-to-use Docker configuration files based on your project type (JavaScript or TypeScript, minimal or MVC).</p>
+
+                <div class="note">
+                    <p><strong>Three core goals:</strong></p>
+                    <ul>
+                        <li>Environment consistency across machines</li>
+                        <li>Simple production deployment</li>
+                        <li>Clear separation between development and production concerns</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="files">
+                <h2>Files Fogoe Generates</h2>
+                <p>When Docker support is enabled, Fogoe creates the following files in your project root:</p>
+
+                <div class="file-block">
+                    <h3>1. Dockerfile <span class="tag tag-default">Required</span></h3>
+                    <p>The core file that defines how the application is built and run inside a container.</p>
+                    
+                    <p><strong>Typical responsibilities:</strong></p>
+                    <ul>
+                        <li>Define base OS + Node runtime</li>
+                        <li>Handle dependency installation</li>
+                        <li>Build TypeScript if needed</li>
+                        <li>Run the application</li>
+                    </ul>
+                </div>
+
+                <div class="file-block">
+                    <h3>2. .dockerignore <span class="tag tag-default">Required</span></h3>
+                    <p>Works like <code>.gitignore</code>, but for Docker.</p>
+                    <ul>
+                        <li>Prevents copying unnecessary files into the container</li>
+                        <li>Reduces image size</li>
+                        <li>Avoids leaking sensitive files</li>
+                    </ul>
+                    <p>Fogoe ignores: <code>node_modules</code>, <code>.git</code>, <code>.env</code>, and caches.</p>
+                </div>
+
+                <div class="file-block">
+                    <h3>3. docker-compose.yml <span class="tag tag-recommended">Optional</span></h3>
+                    <p>Used to run multi-service setups easily.</p>
+                    <ul>
+                        <li>One-command startup: <code>docker compose up</code></li>
+                        <li>Clean local development environment</li>
+                        <li>Easy scaling to multi-service architecture</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="base-os">
+                <h2>Base OS Choices</h2>
+                <p>Fogoe supports multiple official Node base images. Each serves a different production need:</p>
+
+                <div class="os-block">
+                    <h3>✅ Debian Slim <span class="tag tag-default">Default</span></h3>
+                    <p><strong>Image:</strong> <code>node:20-slim</code></p>
+                    <p>Small but stable. Uses glibc for best native module compatibility (bcrypt, sharp, prisma, etc.). <strong>Recommended for most users.</strong></p>
+                </div>
+
+                <div class="os-block">
+                    <h3>✅ Ubuntu <span class="tag tag-recommended">Tooling Friendly</span></h3>
+                    <p><strong>Image:</strong> <code>node:20</code></p>
+                    <p>Full OS environment. Best for apps that need many OS-level dependencies or custom binaries.</p>
+                </div>
+
+                <div class="os-block">
+                    <h3>✅ Distroless <span class="tag tag-advanced">Security Focused</span></h3>
+                    <p><strong>Image:</strong> <code>gcr.io/distroless/nodejs20</code></p>
+                    <p>No shell, no package manager. Minimal attack surface. Best for production-hardened deployments.</p>
+                </div>
+
+                <div class="os-block">
+                    <h3>⚠️ Alpine <span class="tag tag-caution">Lightweight</span></h3>
+                    <p><strong>Image:</strong> <code>node:20-alpine</code></p>
+                    <p>Minimal image size. Uses musl instead of glibc. Use when size is critical and dependencies are compatible.</p>
+                </div>
+            </section>
+
+            <section id="js-vs-ts">
+                <h2>JavaScript vs TypeScript</h2>
+                <p>Tailored strategies for each runtime:</p>
+
+                <h3>JavaScript Projects</h3>
+                <ul>
+                    <li>Install dependencies, copy source, and start directly.</li>
+                </ul>
+
+                <h3>TypeScript Projects</h3>
+                <ul>
+                    <li>Build in-container, run compiled output, and use multi-stage builds to keep images small.</li>
+                </ul>
+            </section>
+
+            <section id="dev-vs-prod">
+                <h2>Dev vs Prod Builds</h2>
+                <div class="info-box">
+                    <p><strong>Development:</strong> Fast rebuilds, hot-reloading friendly, includes dev dependencies.</p>
+                    <p><strong>Production:</strong> Multi-stage builds, minimal images, production dependencies only.</p>
+                </div>
+                <p>Fogoe's Docker integration ensures your app is cloud-ready from the first command.</p>
+            </section>
+
+            <footer class="main-footer">
+                <p>Cloud-ready scaffolding. Fogoe Docs.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
