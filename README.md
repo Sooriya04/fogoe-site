@@ -40,4 +40,4 @@ Fogoe scaffolds projects, not full systems. No business logic, no schemas, no lo
 
 ## License
 
-MIT © 2026 Sooriya B
+Apache License 2.0 © 2026 Sooriya B

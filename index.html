@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fogoe | Minimal Node.js & TypeScript Backend Starter</title>
-    <meta name="description" content="A minimal CLI for initializing Node.js backend projects with TypeScript support and zero friction. Reach a running server state in seconds.">
-    <meta name="keywords" content="Node.js, TypeScript, CLI, backend, Express, Fastify, scaffolding, generator, starter">
+    <meta name="description"
+        content="A minimal CLI for initializing Node.js backend projects with TypeScript support and zero friction. Reach a running server state in seconds.">
+    <meta name="keywords"
+        content="Node.js, TypeScript, CLI, backend, Express, Fastify, scaffolding, generator, starter">
     <meta name="author" content="Sooriya">
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content="Fogoe | Minimal Node.js & TypeScript Backend Starter">
-    <meta property="og:description" content="Initialize Node.js and TypeScript backends with zero friction. A running server in seconds.">
+    <meta property="og:description"
+        content="Initialize Node.js and TypeScript backends with zero friction. A running server in seconds.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://github.com/Sooriya04/fogoe">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
     <style>
         :root {
@@ -25,11 +31,11 @@
             --bg-body: #0a0a0f;
             --bg-subtle: #12121a;
             --bg-card: #16161f;
-            
+
             --text-heading: #ffffff;
             --text-body: #a1a1aa;
             --text-muted: #71717a;
-            
+
             --brand-primary: #6366f1;
             --brand-secondary: #8b5cf6;
             --brand-accent: #22d3ee;
@@ -40,17 +46,21 @@
             --border-color: rgba(255, 255, 255, 0.08);
             --border-hover: rgba(255, 255, 255, 0.15);
 
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
             --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
             --shadow-glow: 0 0 60px -15px rgba(99, 102, 241, 0.4);
-            
+
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 20px;
             --radius-xl: 24px;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -64,8 +74,11 @@
         /* Ambient Background Effects */
         .ambient-bg {
             position: fixed;
-            top: 0; left: 0; right: 0; height: 100vh;
-            background: 
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100vh;
+            background:
                 radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
                 radial-gradient(ellipse 60% 40% at 80% 60%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
                 radial-gradient(ellipse 60% 40% at 20% 80%, rgba(34, 211, 238, 0.05) 0%, transparent 50%);
@@ -75,10 +88,13 @@
 
         .grid-pattern {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 60px 60px;
             z-index: -1;
             pointer-events: none;
@@ -110,7 +126,7 @@
         }
 
         .brand-logo {
-            font-size: 1.5rem; 
+            font-size: 1.5rem;
             font-weight: 700;
             display: inline-block;
             background: var(--brand-gradient);
@@ -120,7 +136,10 @@
             cursor: pointer;
             transition: opacity 0.2s;
         }
-        .brand-logo:hover { opacity: 0.8; }
+
+        .brand-logo:hover {
+            opacity: 0.8;
+        }
 
         .nav-links {
             display: flex;
@@ -135,7 +154,10 @@
             font-weight: 500;
             transition: color 0.2s;
         }
-        .nav-links a:hover { color: var(--text-heading); }
+
+        .nav-links a:hover {
+            color: var(--text-heading);
+        }
 
         .nav-cta {
             display: flex;
@@ -162,6 +184,7 @@
             color: var(--text-body);
             border: 1px solid var(--border-color);
         }
+
         .btn-ghost:hover {
             background: var(--bg-card);
             border-color: var(--border-hover);
@@ -173,6 +196,7 @@
             color: white;
             box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
         }
+
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
@@ -198,14 +222,21 @@
             color: var(--text-muted);
             margin-bottom: 32px;
         }
-        .hero-badge i { color: var(--brand-primary); }
-        .hero-badge span { color: var(--brand-accent); font-weight: 600; }
+
+        .hero-badge i {
+            color: var(--brand-primary);
+        }
+
+        .hero-badge span {
+            color: var(--brand-accent);
+            font-weight: 600;
+        }
 
         h1 {
             color: var(--text-heading);
             font-weight: 700;
             letter-spacing: -0.04em;
-            font-size: clamp(2.5rem, 6vw, 4rem); 
+            font-size: clamp(2.5rem, 6vw, 4rem);
             line-height: 1.1;
             margin-bottom: 24px;
         }
@@ -221,7 +252,7 @@
             max-width: 600px;
             margin: 0 auto 48px;
             color: var(--text-body);
-            font-size: 1.15rem; 
+            font-size: 1.15rem;
         }
 
         /* --- TERMINAL --- */
@@ -242,23 +273,38 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
         }
-        .terminal-window:hover { 
+
+        .terminal-window:hover {
             transform: translateY(-4px) scale(1.02);
             border-color: var(--border-hover);
         }
 
         .terminal-header {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             padding: 12px 16px;
             display: flex;
             align-items: center;
             gap: 8px;
             border-bottom: 1px solid var(--border-color);
         }
-        .dot { width: 12px; height: 12px; border-radius: 50%; }
-        .dot-red { background: #ff5f57; }
-        .dot-yellow { background: #febc2e; }
-        .dot-green { background: #28c840; }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red {
+            background: #ff5f57;
+        }
+
+        .dot-yellow {
+            background: #febc2e;
+        }
+
+        .dot-green {
+            background: #28c840;
+        }
 
         .terminal-title {
             flex: 1;
@@ -277,21 +323,30 @@
             font-size: 1rem;
         }
 
-        .cmd-text { color: var(--text-heading); }
-        .prompt { color: var(--brand-accent); margin-right: 12px; font-weight: bold; }
-        .copy-btn { 
-            background: none; 
-            border: none; 
-            color: var(--text-muted); 
-            cursor: pointer; 
-            transition: all 0.2s; 
+        .cmd-text {
+            color: var(--text-heading);
+        }
+
+        .prompt {
+            color: var(--brand-accent);
+            margin-right: 12px;
+            font-weight: bold;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
             font-size: 1.1rem;
             padding: 8px;
             border-radius: var(--radius-sm);
         }
-        .copy-btn:hover { 
+
+        .copy-btn:hover {
             color: var(--text-heading);
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .hero-hint {
@@ -302,7 +357,11 @@
             justify-content: center;
             gap: 8px;
         }
-        .hero-hint i { color: var(--brand-accent); font-size: 0.8rem; }
+
+        .hero-hint i {
+            color: var(--brand-accent);
+            font-size: 0.8rem;
+        }
 
         /* --- STATS --- */
         .stats-bar {
@@ -336,19 +395,22 @@
         }
 
         /* --- SECTIONS --- */
-        .section { padding: 100px 0; }
+        .section {
+            padding: 100px 0;
+        }
+
         .section-header {
             text-align: center;
             max-width: 600px;
             margin: 0 auto 64px;
         }
-        
-        h2 { 
-            font-size: 2rem; 
-            margin-bottom: 16px; 
-            color: var(--text-heading); 
-            font-weight: 600; 
-            letter-spacing: -0.03em; 
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: var(--text-heading);
+            font-weight: 600;
+            letter-spacing: -0.03em;
         }
 
         .section-desc {
@@ -356,7 +418,12 @@
             font-size: 1.05rem;
         }
 
-        h3 { font-size: 1.15rem; margin-bottom: 12px; color: var(--text-heading); font-weight: 600; }
+        h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: var(--text-heading);
+            font-weight: 600;
+        }
 
         /* --- QUICK START / HOW IT WORKS --- */
         .steps-grid {
@@ -432,9 +499,14 @@
             border-color: var(--border-hover);
         }
 
-        .split-card.problem { border-top: 3px solid #ef4444; }
-        .split-card.solution { border-top: 3px solid #22c55e; }
-        
+        .split-card.problem {
+            border-top: 3px solid #ef4444;
+        }
+
+        .split-card.solution {
+            border-top: 3px solid #22c55e;
+        }
+
         .feature-list {
             list-style: none;
             padding: 0;
@@ -449,8 +521,18 @@
             font-size: 0.95rem;
             color: var(--text-body);
         }
-        .icon-problem { color: #ef4444; margin-top: 3px; font-size: 1rem; }
-        .icon-solution { color: #22c55e; margin-top: 3px; font-size: 1rem; }
+
+        .icon-problem {
+            color: #ef4444;
+            margin-top: 3px;
+            font-size: 1rem;
+        }
+
+        .icon-solution {
+            color: #22c55e;
+            margin-top: 3px;
+            font-size: 1rem;
+        }
 
         /* --- GENERATED OUTPUT --- */
         .output-showcase {
@@ -468,7 +550,7 @@
         }
 
         .file-tree-header {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             padding: 16px 24px;
             border-bottom: 1px solid var(--border-color);
             display: flex;
@@ -476,9 +558,12 @@
             gap: 12px;
         }
 
-        .file-tree-header i { color: var(--brand-primary); }
-        .file-tree-header span { 
-            font-weight: 600; 
+        .file-tree-header i {
+            color: var(--brand-primary);
+        }
+
+        .file-tree-header span {
+            font-weight: 600;
             color: var(--text-heading);
             font-size: 0.9rem;
         }
@@ -507,11 +592,25 @@
             width: 20px;
         }
 
-        .file-tree-body .folder { color: #fbbf24; }
-        .file-tree-body .file-js { color: #22d3ee; }
-        .file-tree-body .file-json { color: #a78bfa; }
-        .file-tree-body .file-env { color: #34d399; }
-        .file-tree-body .nested { padding-left: 28px; }
+        .file-tree-body .folder {
+            color: #fbbf24;
+        }
+
+        .file-tree-body .file-js {
+            color: #22d3ee;
+        }
+
+        .file-tree-body .file-json {
+            color: #a78bfa;
+        }
+
+        .file-tree-body .file-env {
+            color: #34d399;
+        }
+
+        .file-tree-body .nested {
+            padding-left: 28px;
+        }
 
         .output-info {
             display: flex;
@@ -599,8 +698,13 @@
             font-size: 1.4rem;
         }
 
-        .arch-card.minimal .arch-icon { color: var(--brand-accent); }
-        .arch-card.mvc .arch-icon { color: var(--brand-secondary); }
+        .arch-card.minimal .arch-icon {
+            color: var(--brand-accent);
+        }
+
+        .arch-card.mvc .arch-icon {
+            color: var(--brand-secondary);
+        }
 
         .arch-tag {
             display: inline-block;
@@ -684,14 +788,15 @@
             border-collapse: collapse;
         }
 
-        .tech-table th, .tech-table td {
+        .tech-table th,
+        .tech-table td {
             text-align: left;
             padding: 20px 28px;
             border-bottom: 1px solid var(--border-color);
         }
 
         .tech-table th {
-            background: rgba(255,255,255,0.02);
+            background: rgba(255, 255, 255, 0.02);
             font-weight: 600;
             color: var(--text-heading);
             width: 25%;
@@ -703,7 +808,9 @@
         }
 
         .tech-table tr:last-child td,
-        .tech-table tr:last-child th { border-bottom: none; }
+        .tech-table tr:last-child th {
+            border-bottom: none;
+        }
 
         .tech-tag {
             display: inline-block;
@@ -870,7 +977,10 @@
             align-items: center;
             gap: 8px;
         }
-        .footer-links a:hover { color: var(--text-heading); }
+
+        .footer-links a:hover {
+            color: var(--text-heading);
+        }
 
         .footer-bottom {
             margin-top: 32px;
@@ -885,71 +995,152 @@
             color: var(--brand-primary);
             text-decoration: none;
         }
-        .footer-bottom a:hover { text-decoration: underline; }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
 
         /* --- ANIMATION & UTILS --- */
-        .fade-up { 
-            opacity: 0; 
-            transform: translateY(20px); 
-            animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; 
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
         }
 
-        .pulse { animation: pulse 2s infinite; }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
 
         #toast {
-            position: fixed; 
-            bottom: 30px; 
-            left: 50%; 
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: var(--bg-card); 
-            color: var(--text-heading); 
-            padding: 12px 24px; 
+            background: var(--bg-card);
+            color: var(--text-heading);
+            padding: 12px 24px;
             border-radius: 99px;
-            font-weight: 500; 
-            opacity: 0; 
+            font-weight: 500;
+            opacity: 0;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             font-size: 0.9rem;
-            display: flex; 
-            align-items: center; 
-            gap: 10px; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
             z-index: 999;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-lg);
         }
-        #toast i { color: #22c55e; }
-        #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+        #toast i {
+            color: #22c55e;
+        }
+
+        #toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
 
         /* Responsive */
         @media (max-width: 900px) {
-            .steps-grid { grid-template-columns: 1fr; }
-            .tech-grid { grid-template-columns: repeat(2, 1fr); }
-            .non-goals-grid { grid-template-columns: 1fr; }
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .non-goals-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .grid-split, .arch-grid, .output-showcase { grid-template-columns: 1fr; }
-            .stats-bar { gap: 32px; flex-wrap: wrap; }
-            h1 { font-size: 2rem; }
-            .hero { padding-top: 120px; padding-bottom: 80px; }
-            .section { padding: 60px 0; }
-            .footer-content { flex-direction: column; text-align: center; }
-            .footer-links { flex-wrap: wrap; justify-content: center; }
-            .cta-box { padding: 40px 24px; }
-            .cta-buttons { flex-direction: column; }
+            .nav-links {
+                display: none;
+            }
+
+            .grid-split,
+            .arch-grid,
+            .output-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                gap: 32px;
+                flex-wrap: wrap;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding-top: 120px;
+                padding-bottom: 80px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .cta-box {
+                padding: 40px 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="ambient-bg"></div>
@@ -962,6 +1153,7 @@
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#architecture">Architecture</a>
+                <a href="#commands">Commands</a>
                 <a href="#stack">Stack</a>
                 <a href="https://github.com/Sooriya04/fogoe" target="_blank">Docs</a>
             </div>
@@ -978,16 +1170,16 @@
         <section class="hero container">
             <div class="hero-badge fade-up">
                 <i class="bi bi-lightning-charge-fill"></i>
-                Open Source CLI Tool • <span>MIT License</span>
+                Open Source CLI Tool • <span>Apache License 2.0</span>
             </div>
-            
+
             <h1 class="fade-up delay-1">
                 Initialize Node.js & TypeScript backends<br>
                 <span class="gradient-text">with zero friction.</span>
             </h1>
-            
+
             <p class="hero-desc fade-up delay-2">
-                A minimal CLI with full TypeScript support that generates only the essentials — a server, a route, 
+                A minimal CLI with full TypeScript support that generates only the essentials — a server, a route,
                 and a lifecycle. Reach a running state in seconds, not minutes.
 
             </p>
@@ -1011,10 +1203,10 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="hero-hint fade-up delay-4">
                 <i class="bi bi-info-circle"></i>
-                No installation required. Run directly with npx.
+                No installation required. Run directly with npx. Or install globally with <code>npm i -g fogoe</code>.
             </div>
         </section>
 
@@ -1075,21 +1267,30 @@
                 <div class="split-card problem fade-up">
                     <h2>The Problem</h2>
                     <ul class="feature-list">
-                        <li><i class="bi bi-x-circle-fill icon-problem"></i> Initializing projects manually every time</li>
-                        <li><i class="bi bi-x-circle-fill icon-problem"></i> Installing the same base dependencies repeatedly</li>
-                        <li><i class="bi bi-x-circle-fill icon-problem"></i> Configuring entry points and boilerplate from scratch</li>
-                        <li><i class="bi bi-x-circle-fill icon-problem"></i> "Server is alive" state takes too much time</li>
-                        <li><i class="bi bi-x-circle-fill icon-problem"></i> Setup creates friction before real work begins</li>
+                        <li><i class="bi bi-x-circle-fill icon-problem"></i> Initializing projects manually every time
+                        </li>
+                        <li><i class="bi bi-x-circle-fill icon-problem"></i> Installing the same base dependencies
+                            repeatedly</li>
+                        <li><i class="bi bi-x-circle-fill icon-problem"></i> Configuring entry points and boilerplate
+                            from scratch</li>
+                        <li><i class="bi bi-x-circle-fill icon-problem"></i> "Server is alive" state takes too much time
+                        </li>
+                        <li><i class="bi bi-x-circle-fill icon-problem"></i> Setup creates friction before real work
+                            begins</li>
                     </ul>
                 </div>
 
                 <div class="split-card solution fade-up delay-1">
                     <h2>The Solution</h2>
                     <ul class="feature-list">
-                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Intentionally minimal, clean code generation</li>
-                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Fully extensible design — no lock-in</li>
-                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Immediate running state with one route</li>
-                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Choose your own database and auth approach</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Intentionally minimal, clean code
+                            generation</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Fully extensible design — no lock-in
+                        </li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Immediate running state with one route
+                        </li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Choose your own database and auth
+                            approach</li>
                         <li><i class="bi bi-check-circle-fill icon-solution"></i> You control what happens next</li>
                     </ul>
                 </div>
@@ -1136,19 +1337,23 @@
                 <div class="output-info fade-up delay-1">
                     <div class="output-card">
                         <h4><i class="bi bi-lightning-charge"></i> Ready to Run</h4>
-                        <p>Server is configured and starts immediately. One health-check route is already live at the root endpoint.</p>
+                        <p>Server is configured and starts immediately. One health-check route is already live at the
+                            root endpoint.</p>
                     </div>
                     <div class="output-card">
                         <h4><i class="bi bi-database"></i> Database Ready</h4>
-                        <p>Connection template included for your chosen database. Just add your credentials to .env and connect.</p>
+                        <p>Connection template included for your chosen database. Just add your credentials to .env and
+                            connect.</p>
                     </div>
                     <div class="output-card">
                         <h4><i class="bi bi-shield-check"></i> Security Included</h4>
-                        <p>CORS configured, environment variables managed with dotenv, and optional bcrypt/argon2 for hashing.</p>
+                        <p>CORS configured, environment variables managed with dotenv, and optional bcrypt/argon2 for
+                            hashing.</p>
                     </div>
                     <div class="output-card">
                         <h4><i class="bi bi-puzzle"></i> Fully Extensible</h4>
-                        <p>No magic, no hidden configurations. Add your own controllers, services, and routes as needed.</p>
+                        <p>No magic, no hidden configurations. Add your own controllers, services, and routes as needed.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1160,7 +1365,7 @@
                 <h2>Architecture Options</h2>
                 <p class="section-desc">Choose the structure that fits your project scope and team preferences.</p>
             </div>
-            
+
             <div class="arch-grid">
                 <div class="arch-card minimal fade-up">
                     <div class="arch-icon"><i class="bi bi-lightning"></i></div>
@@ -1176,13 +1381,14 @@
                         <li><i class="bi bi-check2"></i> Ideal for microservices</li>
                     </ul>
                 </div>
-                
+
                 <div class="arch-card mvc fade-up delay-1">
                     <div class="arch-icon"><i class="bi bi-grid-3x3-gap"></i></div>
                     <span class="arch-tag">STRUCTURED</span>
                     <h3>MVC</h3>
                     <p style="color: var(--text-muted); margin-bottom: 16px;">
-                        Controllers, routes, services, and config directories. Conventional structure for larger projects.
+                        Controllers, routes, services, and config directories. Conventional structure for larger
+                        projects.
                     </p>
                     <ul class="arch-features" style="list-style: none; padding: 0;">
                         <li><i class="bi bi-check2"></i> Organized folder structure</li>
@@ -1198,27 +1404,38 @@
         <section class="section container">
             <div class="section-header fade-up">
                 <h2>Full TypeScript Support</h2>
-                <p class="section-desc">Automatic configuration with zero setup. TypeScript just works out of the box.</p>
+                <p class="section-desc">Automatic configuration with zero setup. TypeScript just works out of the box.
+                </p>
             </div>
-            
+
             <div class="grid-split">
                 <div class="split-card fade-up" style="border-top: 3px solid #3178c6;">
-                    <h3><i class="bi bi-code-square" style="color: #3178c6; margin-right: 12px;"></i>Smart Configuration</h3>
+                    <h3><i class="bi bi-code-square" style="color: #3178c6; margin-right: 12px;"></i>Smart Configuration
+                    </h3>
                     <ul class="feature-list">
-                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Automatic @types/* package installation</li>
-                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Optimized tsconfig.json for your module type</li>
-                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Path aliases for MVC projects (@routes/*, @controllers/*)</li>
-                        <li><i class="bi bi-check-circle-fill icon-solution"></i> tsx and ts-node included for development</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Automatic @types/* package
+                            installation</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Optimized tsconfig.json for your
+                            module type</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Path aliases for MVC projects
+                            (@routes/*, @controllers/*)</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> tsx and ts-node included for
+                            development</li>
                     </ul>
                 </div>
 
                 <div class="split-card fade-up delay-1" style="border-top: 3px solid #3178c6;">
-                    <h3><i class="bi bi-puzzle-fill" style="color: #3178c6; margin-right: 12px;"></i>Auto-Installed Types</h3>
+                    <h3><i class="bi bi-puzzle-fill" style="color: #3178c6; margin-right: 12px;"></i>Auto-Installed
+                        Types</h3>
                     <ul class="feature-list">
-                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Core: typescript, ts-node, tsx, @types/node</li>
-                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Express: @types/express, @types/cors</li>
-                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Fastify: @fastify/type-provider-typebox</li>
-                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Database & Library types as needed</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Core: typescript, ts-node, tsx,
+                            @types/node</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Express: @types/express, @types/cors
+                        </li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Fastify:
+                            @fastify/type-provider-typebox</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Database & Library types as needed
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -1230,7 +1447,7 @@
                 <h2>Git Integration</h2>
                 <p class="section-desc">Optionally initialize a Git repository and push to GitHub during setup.</p>
             </div>
-            
+
             <div class="output-showcase">
                 <div class="output-info fade-up">
                     <div class="output-card">
@@ -1250,7 +1467,7 @@
                         <p>Skip if you prefer manual Git setup. Full control over your workflow.</p>
                     </div>
                 </div>
-                
+
                 <div class="file-tree fade-up delay-1">
                     <div class="file-tree-header">
                         <i class="bi bi-terminal"></i>
@@ -1258,17 +1475,72 @@
                     </div>
                     <div class="file-tree-body">
                         <ul>
-                            <li><i class="bi bi-1-circle-fill" style="color: var(--brand-accent);"></i> "Initialize Git repository?" → yes</li>
-                            <li class="nested"><i class="bi bi-arrow-return-right" style="color: var(--text-muted);"></i> Enter branch name (default: main)</li>
-                            <li><i class="bi bi-2-circle-fill" style="color: var(--brand-accent);"></i> Provide GitHub repository URL</li>
-                            <li class="nested"><i class="bi bi-arrow-return-right" style="color: var(--text-muted);"></i> https://github.com/user/repo.git</li>
-                            <li><i class="bi bi-3-circle-fill" style="color: var(--brand-accent);"></i> Fogoe handles the rest:</li>
+                            <li><i class="bi bi-1-circle-fill" style="color: var(--brand-accent);"></i> "Initialize Git
+                                repository?" → yes</li>
+                            <li class="nested"><i class="bi bi-arrow-return-right"
+                                    style="color: var(--text-muted);"></i> Enter branch name (default: main)</li>
+                            <li><i class="bi bi-2-circle-fill" style="color: var(--brand-accent);"></i> Provide GitHub
+                                repository URL</li>
+                            <li class="nested"><i class="bi bi-arrow-return-right"
+                                    style="color: var(--text-muted);"></i> https://github.com/user/repo.git</li>
+                            <li><i class="bi bi-3-circle-fill" style="color: var(--brand-accent);"></i> Fogoe handles
+                                the rest:</li>
                             <li class="nested"><i class="bi bi-check2" style="color: #22c55e;"></i> git init</li>
                             <li class="nested"><i class="bi bi-check2" style="color: #22c55e;"></i> git add .</li>
-                            <li class="nested"><i class="bi bi-check2" style="color: #22c55e;"></i> git commit -m "Initial commit"</li>
+                            <li class="nested"><i class="bi bi-check2" style="color: #22c55e;"></i> git commit -m
+                                "Initial commit"</li>
                             <li class="nested"><i class="bi bi-check2" style="color: #22c55e;"></i> git push</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commands Reference -->
+        <section class="section container" id="commands">
+            <div class="section-header fade-up">
+                <h2>Commands Reference</h2>
+                <p class="section-desc">Zero-friction workflow to manage your project repository and initialize
+                    projects.</p>
+            </div>
+
+            <div class="grid-split">
+                <div class="split-card fade-up" style="border-top: 3px solid var(--brand-primary);">
+                    <h3><i class="bi bi-terminal-fill" style="color: var(--brand-primary); margin-right: 12px;"></i>npx
+                        fogoe / fogoe</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 16px;">The Interactive Initializer. Launches the
+                        main setup wizard to scaffold a new Node.js backend project from scratch.</p>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Framework & Language selection</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Database & Authentication</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Optional Git Initialization</li>
+                    </ul>
+                </div>
+
+                <div class="split-card fade-up delay-1" style="border-top: 3px solid var(--brand-secondary);">
+                    <h3><i class="bi bi-git" style="color: var(--brand-secondary); margin-right: 12px;"></i>npx fogoe
+                        init / fogoe init</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 16px;">Integrates Git into an
+                        <strong>existing</strong> Fogoe project and updates the state config.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Initializes local Git repository</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Connects to remote GitHub branch</li>
+                        <li><i class="bi bi-check-circle-fill icon-solution"></i> Pushes the initial commit</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="arch-card fade-up delay-2" style="margin-top: 32px; border-top: 3px solid #22c55e;">
+                <h3 style="margin-bottom: 8px;"><i class="bi bi-cloud-arrow-up-fill"
+                        style="color: #22c55e; margin-right: 12px;"></i>npx fogoe push "message" / fogoe push "message"
+                </h3>
+                <p style="color: var(--text-muted); margin-bottom: 16px;">A complete shortcut command that automatically
+                    stages, commits, and pushes your changes to GitHub in one seamless operation.</p>
+                <div class="step-code" style="margin-top: 0; background: rgba(0,0,0,0.2);">
+                    <div style="color: var(--brand-accent);">1. git add .</div>
+                    <div style="color: var(--brand-accent);">2. git commit -m "message"</div>
+                    <div style="color: var(--brand-accent);">3. git push</div>
                 </div>
             </div>
         </section>
@@ -1279,32 +1551,36 @@
                 <h2>Supported Stack</h2>
                 <p class="section-desc">Flexible options to match your preferred development workflow.</p>
             </div>
-            
+
             <div class="tech-table-wrap fade-up">
                 <table class="tech-table">
                     <tr>
-                        <th><i class="bi bi-code-slash" style="margin-right: 10px; color: var(--brand-primary);"></i>Languages</th>
+                        <th><i class="bi bi-code-slash"
+                                style="margin-right: 10px; color: var(--brand-primary);"></i>Languages</th>
                         <td>
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">TypeScript</span>
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-box" style="margin-right: 10px; color: var(--brand-primary);"></i>Frameworks</th>
+                        <th><i class="bi bi-box" style="margin-right: 10px; color: var(--brand-primary);"></i>Frameworks
+                        </th>
                         <td>
                             <span class="tech-tag">Express</span>
                             <span class="tech-tag">Fastify</span>
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-file-earmark-code" style="margin-right: 10px; color: var(--brand-primary);"></i>Module Systems</th>
+                        <th><i class="bi bi-file-earmark-code"
+                                style="margin-right: 10px; color: var(--brand-primary);"></i>Module Systems</th>
                         <td>
                             <span class="tech-tag">CommonJS</span>
                             <span class="tech-tag">ES Modules</span>
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-database" style="margin-right: 10px; color: var(--brand-primary);"></i>Databases</th>
+                        <th><i class="bi bi-database"
+                                style="margin-right: 10px; color: var(--brand-primary);"></i>Databases</th>
                         <td>
                             <span class="tech-tag">MongoDB (Mongoose)</span>
                             <span class="tech-tag">Prisma</span>
@@ -1313,7 +1589,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-shield-lock" style="margin-right: 10px; color: var(--brand-primary);"></i>Security</th>
+                        <th><i class="bi bi-shield-lock"
+                                style="margin-right: 10px; color: var(--brand-primary);"></i>Security</th>
                         <td>
                             <span class="tech-tag">bcrypt</span>
                             <span class="tech-tag">argon2</span>
@@ -1322,13 +1599,15 @@
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-key" style="margin-right: 10px; color: var(--brand-primary);"></i>Auth (Optional)</th>
+                        <th><i class="bi bi-key" style="margin-right: 10px; color: var(--brand-primary);"></i>Auth
+                            (Optional)</th>
                         <td>
                             <span class="tech-tag">jsonwebtoken</span>
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-git" style="margin-right: 10px; color: var(--brand-primary);"></i>Git Integration</th>
+                        <th><i class="bi bi-git" style="margin-right: 10px; color: var(--brand-primary);"></i>Git
+                            Integration</th>
                         <td>
                             <span class="tech-tag">GitHub Init</span>
                             <span class="tech-tag">Auto-commit</span>
@@ -1351,7 +1630,7 @@
                     Fogoe scaffolds projects, it does not configure full systems.
                 </p>
                 <p class="philosophy-text">
-                    Database, authentication, and encryption are opt-in dependencies. 
+                    Database, authentication, and encryption are opt-in dependencies.
                     No schemas, migrations, or business logic are generated.
                 </p>
 
@@ -1424,7 +1703,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                MIT License © 2026 <a href="https://sooriya04.github.io/sooriya/" target="_blank">Sooriya B</a> • 
+                Apache License 2.0 © 2026 <a href="https://sooriya04.github.io/sooriya/" target="_blank">Sooriya B</a> •
                 Issues and pull requests are welcome
             </div>
         </div>
@@ -1479,4 +1758,5 @@
         });
     </script>
 </body>
+
 </html>
